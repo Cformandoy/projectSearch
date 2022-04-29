@@ -1,32 +1,35 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiResult } from '../interfaces/interfaces';
+import { HomeComponent } from '../pages/home/home.component';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
+
+
+
+
 export class SearchService {
 
   constructor(private http:HttpClient) { }
   
   
-  getDataGame(){
 
-    
-    return this.http.get<ApiResult>('http://api.giphy.com/v1/gifs/trending&api_key=euxam8qxqEsboArbOLkgA6Orqo5y7vHh&limit=15',{
+  getDataDrink(){
 
-    
-    
-    });
+  
+    return this.http.get<ApiResult>('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=ma');
 
   }
 
-  searchDataGame(text:string){
+  searchDataDrink(text:string){
     
     
-    return this.http.get<ApiResult>(`https://game-prices.p.rapidapi.com/game/${text}?region=us&type=game`,{
-    
-    });
+    return this.http.get<ApiResult>(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${text}`
+    );
 
 
 

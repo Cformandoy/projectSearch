@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GameSearch } from 'src/app/interfaces/interfaces';
+import { ApiResult, Drink} from 'src/app/interfaces/interfaces';
 import { SearchService } from 'src/app/services/search.service';
+import { ReCaptchaV3Service } from 'ngx-captcha';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -10,37 +12,40 @@ import { SearchService } from 'src/app/services/search.service';
 
 
 export class HomeComponent implements OnInit {
+  
 
-
-  gamelist:GameSearch[] = []
+  drinkList:Drink[] = []
   textSearch:string = ""
 
-  constructor(private service:SearchService ) {
+  constructor(private service:SearchService) {}
+
+  
 
 
-  }
 
   ngOnInit(): void {
 
-    this.service.getDataGame()
+    this.service.getDataDrink()
       
       .subscribe(resp=>{
-        console.log(resp.stores)
-        this.gamelist = resp.stores;
+        console.log(resp.drinks)
+        this.drinkList = resp.drinks;
       })
   }
+
+  
 
   onClickSearch(){
     
     console.log("Click en buscar: "+this.textSearch);
-    this.service.searchDataGame(this.textSearch)
+    this.service.searchDataDrink(this.textSearch)
     .subscribe(resp=>{
-      console.log(resp.name);
-      if(resp.id){
+      console.log(resp.drinks);
+      if(resp.drinks){
         
-        this.gamelist = resp.stores
+        this.drinkList = resp.drinks
       }else{
-        this.gamelist = []
+        this.drinkList = []
       }
       
 

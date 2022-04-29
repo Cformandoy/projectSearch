@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiResult } from '../interfaces/interfaces';
 
 @Injectable({
@@ -8,15 +8,25 @@ import { ApiResult } from '../interfaces/interfaces';
 export class SearchService {
 
   constructor(private http:HttpClient) { }
+  
+  
+  getDataGame(){
 
+    
+    return this.http.get<ApiResult>('http://api.giphy.com/v1/gifs/trending&api_key=euxam8qxqEsboArbOLkgA6Orqo5y7vHh&limit=15',{
 
-  getDataMovies(){
-    return this.http.get<ApiResult>('http://www.omdbapi.com/?s=star&apikey=a734d703');
+    
+    
+    });
 
   }
 
-  searchDataMovie(text:string){
-    return this.http.get<ApiResult>(`http://www.omdbapi.com/?s=${text}&apikey=a734d703`);
+  searchDataGame(text:string){
+    
+    
+    return this.http.get<ApiResult>(`https://game-prices.p.rapidapi.com/game/${text}?region=us&type=game`,{
+    
+    });
 
 
 

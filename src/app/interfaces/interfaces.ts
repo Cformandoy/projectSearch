@@ -1,17 +1,20 @@
-export interface Movie {
+export interface GameSearch {
 
-    Title:string,
-    Year:number,
-    imdbID:string,
-    Type:string,
-    Poster:string
+   price:number,
+   seller:string,
+   url:string
     
 }
 
 export interface ApiResult{
-
-    Search:Movie[],
-    totalResults:number,
-    Response:boolean
+    currency:string,
+    currentLowestPrice:number,
+    developer:string,
+    id:string,
+    name:string,
+    releaseDate:string,
+    stores:GameSearch[],
+    type:string
+    
 
 }

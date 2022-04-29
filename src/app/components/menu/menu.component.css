@@ -30,4 +30,13 @@
   .dropdown-toggle {
     outline: 0;
   }
+
+  .div-menu{
+    min-width: 100vw;
+    min-height: 8vh;
+}
+
+.cl-search{
+    min-width: 45vw;
+}
   

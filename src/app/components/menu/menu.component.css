@@ -43,3 +43,12 @@
 .dropdown-toggle {
   outline: 0;
 }
+
+
+.font_header{
+  font-size: 1vw;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+
+}

@@ -2,7 +2,7 @@
     <footer class="py-3 my-4">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li *ngFor="let item of items" class="nav-item">
-          <a routerLink="{{item.url}}" class="nav-link px-2 text-muted" aria-current="page" >
+          <a routerLink="{{item.url}}" routerLinkActive="active" class="nav-link px-2 text-muted" aria-current="page" >
             {{item.text}}
           </a>
         </li>

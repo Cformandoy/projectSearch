@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   drinkList:Drink[] = []
   textSearch:string = ""
+  loading:boolean = false
 
   constructor(private service:SearchService) {}
 
@@ -24,33 +25,37 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.loading=true
+    setTimeout(()=>{
     this.service.getDataDrink()
       
-      .subscribe(resp=>{
-        console.log(resp.drinks)
-        this.drinkList = resp.drinks;
-      })
+        .subscribe(resp=>{
+          this.loading=false
+          console.log(resp.drinks)
+          this.drinkList = resp.drinks;
+        })
+    }, 1);
   }
 
   
 
   onClickSearch(){
-    
+    this.loading=true
     console.log("Click en buscar: "+this.textSearch);
-    this.service.searchDataDrink(this.textSearch)
-    .subscribe(resp=>{
-      console.log(resp.drinks);
-      if(resp.drinks){
-        
-        this.drinkList = resp.drinks
-      }else{
-        this.drinkList = []
-      }
-      
+    setTimeout(()=>{
+      this.service.searchDataDrink(this.textSearch)
+      .subscribe(resp=>{
+        this.loading=false
+        console.log(resp.drinks);
+        if(resp.drinks){
+          this.drinkList = resp.drinks
+        }else{
+          this.drinkList = []
+        }
+      })
 
-
-    })
+    }, 1);
+    
 
   }
 

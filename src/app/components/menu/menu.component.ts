@@ -12,15 +12,18 @@ export class MenuComponent implements OnInit {
   items : any[] = [
     {
       url : 'home',
-      text: 'Home'
+      text: 'Home',
+      icon: 'bi-house'
     },
     {
       url : 'about',
-      text: 'About'
+      text: 'About',
+      icon: 'bi-balloon'
     },
     {
       url : 'settings',
-      text: 'Settings'
+      text: 'Settings',
+      icon: 'bi-gear'
     }
 
   ]

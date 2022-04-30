@@ -3,6 +3,7 @@ export interface ApiResult{
 }
 
 export interface Drink{
+    idDrink:string,
     strDrink:string,
     strDrinkAlternate:string,
     strTags:string,

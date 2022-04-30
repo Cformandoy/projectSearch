@@ -1,30 +1,27 @@
-<header class="div-menu p-3 bg-dark text-white">
+<header>
+  <div class="px-4 py-2 bg-dark text-white">
+    
     <div class="container">
+      
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        <a href="/" class="d-flex align-items-center my-2 me-lg-auto text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="bootstrap-icons.svg#bi-cup-straw"/></svg>
+          <svg class="bi" width="32" height="32" fill="currentColor">
+            <use href=""/>
+          </svg>
+          <img class="HeaderLogo" src="https://www.graphicsprings.com/filestorage/stencils/772a785f67d7cba90b4686bf641defbe.png?width=400&height=400" alt="">
+
         </a>
-        
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
           <li *ngFor="let item of items">
-            <a routerLink="{{item.url}}" class="nav-link px-2 text-secondary" aria-current="page" >
-              <i class="bi {{item.icon}}"></i>
+            <a href="{{item.url}}" class="nav-link text-white">
+              <i class="bi mb-1 {{item.icon}}" width="35" height="35"></i>
               {{item.text}}
             </a>
           </li>
         </ul>
-        <hr>
-
-        <!-- <form >
-          <input type="search" [(ngModel)]="textSearch" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-          
-        </form> -->
-
-        <!-- <form class="cl-search col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input name="textSearch" [(ngModel)]="textSearch"  class="form-control form-control-dark" type="search" placeholder="Search..." aria-label="Search">
-          <button class="btn btn-outline-success" (click)="onClickSearch()" type="button">Search</button>
-        </form> -->
-       
       </div>
     </div>
+  </div>
 </header>

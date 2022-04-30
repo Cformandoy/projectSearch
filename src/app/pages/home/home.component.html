@@ -15,28 +15,32 @@
         <div class="album py-5 bg-light">
           <div class="container">
 
-            <div *ngIf="drinkList.length==0">
-              <h3>No existen resultados para la busqueda</h3>
-            </div>
-      
-            <div  class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div  *ngIf="drinkList.length>0" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
               <div  *ngFor="let bebida of drinkList" class="col">
-                <div class="card shadow-sm">
-                  <!-- <img src="{{video.thumbnails}}" alt=""> -->
-                  <div class="card-body">
-                    <p class="card-text">{{bebida.strDrink}}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <a href="https://www.imdb.com/title/{{bebida.strDrink}}/" target="_blank" type="button" class="btn btn-sm btn-outline-secondary">Ver mas</a>
+                <a href="https://www.thecocktaildb.com/drink/{{bebida.idDrink}}?lan=it/" >
+
+                  <div class="card shadow-sm">
+                    <img src="{{bebida.strDrinkThumb}}" width="100%" height="400" alt=""> 
+                    <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="{{bebida.strDrinkThumb}}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{bebida.strDrink}}</text></svg> -->
+                    <div class="card-body">
+                      <p class="card-text">{{bebida.strDrink}}</p>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <a href="https://www.thecocktaildb.com/drink/{{bebida.idDrink}}?lan=it/" target="_blank" type="button" class="btn btn-sm btn-outline-secondary">Ver mas</a>
+                        </div>
+                        <small class="text-muted">{{bebida.dateModified}}</small>
                       </div>
-                      <small class="text-muted">{{bebida.dateModified}}</small>
                     </div>
                   </div>
-                </div>
+
+                </a>
               </div>
           </div>
+          <div *ngIf="drinkList.length==0">
+            <h3>No existen resultados para la busqueda</h3>
+          </div>
         </div>
-      
-
-
     </div>
+
+      
